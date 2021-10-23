@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import config from "config";
+import { schemaValidator } from "../hooks/schemaValidator";
 
 export interface UserDocument extends mongoose.Document {
   email: string;
@@ -22,6 +23,8 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
+schemaValidator(UserSchema)
 
 /**
  * Before save hook

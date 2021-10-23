@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { schemaValidator } from "../hooks/schemaValidator";
 import { UserDocument } from "./user.model";
 
 export interface SessionDocument extends mongoose.Document {
@@ -17,6 +18,8 @@ const SessionSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+schemaValidator(SessionSchema)
 
 const Session = mongoose.model<SessionDocument>("Session", SessionSchema);
 
