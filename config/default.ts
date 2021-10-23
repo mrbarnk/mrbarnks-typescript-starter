@@ -1,9 +1,9 @@
 export default {
-  port: process.env.PORT || 3111,
+  port: process.env.PORT || 4000,
   host: "localhost",
-  dbUri: "mongodb://localhost:27017/rest-api",
+  dbUri: process.env.DB_URL,
   saltWorkFactor: 10,
   accessTokenTtl: "15m",
   refreshTokenTtl: "1y",
-  privateKey: `Generate a randome key online.`,
+  privateKey: `Generate a random key here https://app.id123.io/free-tools/key-generator/ online.`,
 };
