@@ -1,6 +1,7 @@
 import { AnySchema } from "yup";
 import { Request, Response, NextFunction } from "express";
 import log from "../logger";
+import { errorResponse } from '../utils/responses.utils';
 
 const validate = (schema: AnySchema) => async (
   req: Request,
@@ -17,7 +18,8 @@ const validate = (schema: AnySchema) => async (
     return next();
   } catch (e: any) {
     log.error(e);
-    return res.status(400).send(e.errors);
+    return errorResponse(res, e.errors[0], 400, e.errors)
+    // return res.status(400).send(e.errors);
   }
 };
 
