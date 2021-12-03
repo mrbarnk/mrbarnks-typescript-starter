@@ -1,7 +1,7 @@
 {
   "info": {
-    "_postman_id": "22b95a9a-7b79-4f56-a51e-bcd3bdfcf375",
-    "name": "MRBARNKS TYPESCRIPT STARTED",
+    "_postman_id": "e908632f-4fce-44e4-9b02-88eb20f86b8f",
+    "name": "Crypto API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -9,29 +9,89 @@
       "name": "Auth",
       "item": [
         {
-          "name": "Sessions",
+          "name": "Session",
           "item": [
             {
-              "name": "Get Sessions",
+              "name": "Create Session(Login)",
               "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "x-refresh",
-                    "value": "{{refreshToken}}",
-                    "type": "text"
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"mrbarnk1@gmail.com\",\n    \"password\": \"Password123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
                   }
-                ],
+                },
                 "url": {
                   "raw": "{{address}}/sessions",
                   "host": ["{{address}}"],
                   "path": ["sessions"]
                 }
               },
-              "response": []
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"email\": \"mrbarnk1@gmail.com\",\n    \"password\": \"Password123\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{address}}/sessions",
+                      "host": ["{{address}}"],
+                      "path": ["sessions"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "869"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"365-cdktHurYexW7V5kUUzEKLgtJYRo\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 01 Oct 2021 16:12:23 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTU3MzMyOWI3NzYwOTI3YjAwZWUzNjIiLCJlbWFpbCI6Im1yYmFybmsxQGdtYWlsLmNvbSIsImZpcnN0bmFtZSI6IkZpcnN0bmFtZSIsImxhc3RuYW1lIjoiTGFzdG5hbWUiLCJjcmVhdGVkQXQiOiIyMDIxLTEwLTAxVDE2OjExOjIxLjA2OVoiLCJ1cGRhdGVkQXQiOiIyMDIxLTEwLTAxVDE2OjExOjIxLjA2OVoiLCJfX3YiOjAsInNlc3Npb24iOiI2MTU3MzM2N2I3NzYwOTI3YjAwZWUzNjMiLCJpYXQiOjE2MzMxMDQ3NDMsImV4cCI6MTYzMzEwNTY0M30.vkC4CAS5FPpce0Q95OKcQCcYyJsENX-MygIR_nPgzGg\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWxpZCI6dHJ1ZSwiX2lkIjoiNjE1NzMzNjdiNzc2MDkyN2IwMGVlMzYzIiwidXNlciI6IjYxNTczMzI5Yjc3NjA5MjdiMDBlZTM2MiIsInVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMjguNCIsImNyZWF0ZWRBdCI6IjIwMjEtMTAtMDFUMTY6MTI6MjMuMTQyWiIsInVwZGF0ZWRBdCI6IjIwMjEtMTAtMDFUMTY6MTI6MjMuMTQyWiIsIl9fdiI6MCwiaWF0IjoxNjMzMTA0NzQzLCJleHAiOjE2NjQ2NjIzNDN9.-dnWlPbah7q1Fe-Mk88JmhvXWR9AivBpvoPv-3RfN0w\"\n}"
+                }
+              ]
             },
             {
-              "name": "Delete Session",
+              "name": "Delete Session(Logout)",
               "request": {
                 "method": "DELETE",
                 "header": [
@@ -47,29 +107,209 @@
                   "path": ["sessions"]
                 }
               },
-              "response": []
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "x-refresh",
+                        "value": "{{refreshToken}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{address}}/sessions",
+                      "host": ["{{address}}"],
+                      "path": ["sessions"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "plain",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "2"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 01 Oct 2021 16:19:03 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "OK"
+                }
+              ]
             },
             {
-              "name": "Create Session",
+              "name": "Check if Session is Active",
               "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-refresh",
+                    "value": "{{refreshToken}}",
+                    "type": "text"
                   }
+                ],
+                "url": {
+                  "raw": "{{address}}/sessions/validate",
+                  "host": ["{{address}}"],
+                  "path": ["sessions", "validate"]
                 },
+                "description": "This section is like admin to see active users.\n# You grab?"
+              },
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "x-refresh",
+                        "value": "{{refreshToken}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{address}}/sessions",
+                      "host": ["{{address}}"],
+                      "path": ["sessions"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "205"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"cd-hqcc6bz0ewwJ2Cy2EIQdbYDUepE\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 01 Oct 2021 16:15:11 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"status\": true,\n    \"message\": \"Fetched User session\",\n    \"data\": {\n        \"valid\": true,\n        \"_id\": \"6171d5612fca095680dccc76\",\n        \"user\": \"615b3ea317f98d3bccaf97e7\",\n        \"userAgent\": \"PostmanRuntime/7.28.4\",\n        \"createdAt\": \"2021-10-21T21:02:25.142Z\",\n        \"updatedAt\": \"2021-10-21T21:02:25.142Z\",\n        \"__v\": 0\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Sessions(admin) Active users",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-refresh",
+                    "value": "{{refreshToken}}",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{address}}/sessions",
                   "host": ["{{address}}"],
                   "path": ["sessions"]
-                }
+                },
+                "description": "This section is like admin to see active users.\n# You grab?"
               },
-              "response": []
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "x-refresh",
+                        "value": "{{refreshToken}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{address}}/sessions",
+                      "host": ["{{address}}"],
+                      "path": ["sessions"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "205"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"cd-hqcc6bz0ewwJ2Cy2EIQdbYDUepE\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 01 Oct 2021 16:15:11 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "[\n    {\n        \"_id\": \"61573367b7760927b00ee363\",\n        \"valid\": true,\n        \"user\": \"61573329b7760927b00ee362\",\n        \"userAgent\": \"PostmanRuntime/7.28.4\",\n        \"createdAt\": \"2021-10-01T16:12:23.142Z\",\n        \"updatedAt\": \"2021-10-01T16:12:23.142Z\",\n        \"__v\": 0\n    }\n]"
+                }
+              ]
             }
           ]
         },
@@ -77,13 +317,96 @@
           "name": "User",
           "item": [
             {
+              "name": "Get All(Admin)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-refresh",
+                    "value": "{{refreshToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{address}}/users?page=0",
+                  "host": ["{{address}}"],
+                  "path": ["users"],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get All(Admin)",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{address}}/users?page=0",
+                      "host": ["{{address}}"],
+                      "path": ["users"],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Server",
+                      "value": "nginx/1.18.0 (Ubuntu)"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 11 Nov 2021 13:19:45 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "1417"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"589-4xfspFxWEwoZvaoGOiQXCG0Gwak\""
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"status\": true,\n    \"message\": \"User Found\",\n    \"data\": [\n        {\n            \"registered_by\": \"webcop\",\n            \"role_id\": 0,\n            \"user_type\": \"junior\",\n            \"disabled\": false,\n            \"_id\": \"618d17c1fff1e4acff3719cd\",\n            \"email\": \"thewpguy1@gmail.com\",\n            \"firstname\": \"Bankole\",\n            \"lastname\": \"Emmanuel\",\n            \"password\": \"$2b$10$q/IUEV6LtqQ5X8B46EV7JudWAAVoDjyN1FzJKfwwWlh11L7a89PN2\",\n            \"createdAt\": \"2021-11-11T13:16:49.735Z\",\n            \"updatedAt\": \"2021-11-11T13:16:49.735Z\",\n            \"__v\": 0\n        },\n        {\n            \"registered_by\": \"webcop\",\n            \"role_id\": 7,\n            \"user_type\": \"junior\",\n            \"disabled\": false,\n            \"_id\": \"618d1223fff1e4acff371986\",\n            \"email\": \"cjoemor@gmail.com\",\n            \"firstname\": \"Joshua\",\n            \"lastname\": \"Mba\",\n            \"password\": \"$2b$10$WFxvyom1qgm8oWzIgWAxiu8cYCtm9CS0dG39h.8lFdu9TJf4iAIfe\",\n            \"createdAt\": \"2021-11-11T12:52:51.468Z\",\n            \"updatedAt\": \"2021-11-11T12:52:51.468Z\",\n            \"__v\": 0\n        },\n        {\n            \"registered_by\": \"webcop\",\n            \"role_id\": 7,\n            \"user_type\": \"junior\",\n            \"disabled\": false,\n            \"_id\": \"617d825285d9c1f73e63ccda\",\n            \"email\": \"mrbarnk1@gmail.com\",\n            \"firstname\": \"Bankole\",\n            \"lastname\": \"Emmanuel\",\n            \"password\": \"$2b$10$SEhNGb7BVWb7qO2AMPXHw.9W1WxPGowwg//sn34PzXX3yW9Y2HgUe\",\n            \"createdAt\": \"2021-10-30T17:35:14.932Z\",\n            \"updatedAt\": \"2021-10-30T17:35:14.932Z\",\n            \"__v\": 0\n        },\n        {\n            \"registered_by\": \"webcop\",\n            \"role_id\": 0,\n            \"user_type\": \"junior\",\n            \"disabled\": false,\n            \"_id\": \"617af56bdb247b20efc29abf\",\n            \"email\": \"elliot.yibaebi@gmail.com\",\n            \"firstname\": \"Elliot\",\n            \"lastname\": \"Yibaebi\",\n            \"password\": \"$2b$10$vw8AlXI2LR32YUTYS/t.wOniVgRChhfgB6./Ig6YevlbsGP4n07La\",\n            \"createdAt\": \"2021-10-28T19:09:31.006Z\",\n            \"updatedAt\": \"2021-10-28T19:09:31.006Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+                }
+              ]
+            },
+            {
               "name": "Create User",
               "request": {
                 "method": "POST",
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\",\n    \"passwordConfirmation\": \"{{password}}\",\n    \"name\": \"{{name}}\"\n}",
+                  "raw": "{\n    \"email\": \"mrbarnk1@gmail.com\",\n    \"firstname\": \"Bankole\",\n    \"lastname\": \"Emmanuel\",\n    \"password\": \"Password123\",\n    \"passwordConfirmation\": \"Password123\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -96,7 +419,566 @@
                   "path": ["users"]
                 }
               },
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"email\": \"mrbarnk1@gmail.com\",\n    \"firstname\": \"Firstname\",\n    \"lastname\": \"Lastname\",\n    \"password\": \"Password123\",\n    \"passwordConfirmation\": \"Password123\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{address}}/users",
+                      "host": ["{{address}}"],
+                      "path": ["users"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "195"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"c3-aDTnjJA966Tz0XlJUzGPXSqxdIY\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 01 Oct 2021 16:11:21 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"_id\": \"61a9bc5c4b8db2767c4e8793\",\n    \"email\": \"mrbarnk1@gmail.com\",\n    \"firstname\": \"Bankole\",\n    \"lastname\": \"Emmanuel\",\n    \"referral_code\": \" TOV5YX4RTM\",\n    \"createdAt\": \"2021-12-03T06:42:36.994Z\",\n    \"updatedAt\": \"2021-12-03T06:42:36.994Z\",\n    \"__v\": 0\n}"
+                },
+                {
+                  "name": "Duplicate Email(Error)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"email\": \"mrbarnk1@gmail.com\",\n    \"firstname\": \"Firstname\",\n    \"lastname\": \"Lastname\",\n    \"password\": \"Password123\",\n    \"passwordConfirmation\": \"Password123\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{address}}/users",
+                      "host": ["{{address}}"],
+                      "path": ["users"]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "167"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"a7-1eO909xEv4yRDJj5Pf1rCUkZg64\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 01 Oct 2021 18:19:17 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"status\": false,\n    \"message\": \"MongoError: E11000 duplicate key error collection: ada-compliance-rest-api.users index: email_1 dup key: { email: \\\"mrbarnk1@gmail.com\\\" }\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Profile (user profile & agents..)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-refresh",
+                    "value": "{{refreshToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{address}}/users/profile",
+                  "host": ["{{address}}"],
+                  "path": ["users", "profile"]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Profile (user profile & agents..)",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "x-refresh",
+                        "value": "{{refreshToken}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{address}}/users/profile",
+                      "host": ["{{address}}"],
+                      "path": ["users", "profile"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "x-access-token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTViM2VhMzE3Zjk4ZDNiY2NhZjk3ZTciLCJlbWFpbCI6Im1yYmFybmsxQGdtYWlsLmNvbSIsImZpcnN0bmFtZSI6IkZpcnN0bmFtZSIsImxhc3RuYW1lIjoiTGFzdG5hbWUiLCJwYXNzd29yZCI6IiQyYiQxMCRJTURFMElUQUNEdzlaYXBlM29FQU51UGlVcUprV2hIOTdTYzdYVkNmejlYbHRDLkY4d05LcSIsImNyZWF0ZWRBdCI6IjIwMjEtMTAtMDRUMTc6NDk6MjMuNjQ5WiIsInVwZGF0ZWRBdCI6IjIwMjEtMTAtMDVUMjI6MjA6MzEuNDM4WiIsIl9fdiI6MCwiZW1haWxWZXJpZmllZEF0IjoiMjAyMS0xMC0wNVQxNDowNToyOS4xOTVaIiwic2Vzc2lvbiI6IjYxNWY1N2QwNThkNTI1MGM3YzJmNzg5NyIsImlhdCI6MTYzMzgyNTQ3NSwiZXhwIjoxNjMzODI2Mzc1fQ.icTc4-lpb1GC7RQOp0at1s0aUJRdegr0wMgOY3rx1A0"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "575"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"23f-s9suv8cLGA+Wy/nNc7/KPuQ6J3Q\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sun, 10 Oct 2021 00:24:35 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"_id\": \"615b3ea317f98d3bccaf97e7\",\n    \"email\": \"mrbarnk1@gmail.com\",\n    \"firstname\": \"Firstname\",\n    \"lastname\": \"Lastname\",\n    \"password\": \"$2b$10$IMDE0ITACDw9Zape3oEANuPiUqJkWhH97Sc7XVCfz9XltC.F8wNKq\",\n    \"createdAt\": \"2021-10-04T17:49:23.649Z\",\n    \"updatedAt\": \"2021-10-05T22:20:31.438Z\",\n    \"__v\": 0,\n    \"emailVerifiedAt\": \"2021-10-05T14:05:29.195Z\",\n    \"agency\": {\n        \"_id\": \"616d3618fc8393504433c922\",\n        \"photo\": \"data:image/jpeg;base64,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\",\n        \"name\": \"Mrbarnk\",\n        \"email\": \"mrbarnk1@gmail.com\",\n        \"address\": \"No 2, Ikorodu.\",\n        \"phone\": \"08179803743\",\n        \"user_id\": \"615b3ea317f98d3bccaf97e7\",\n        \"createdAt\": \"2021-10-18T08:53:44.294Z\",\n        \"updatedAt\": \"2021-10-18T08:53:44.294Z\",\n        \"__v\": 0\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Delete User (admin)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
               "response": []
+            },
+            {
+              "name": "Update",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "x-refresh",
+                    "value": "{{refreshToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"mrbarnk1@gmail.com\",\r\n    \"firstname\": \"Firstname\",\r\n    \"lastname\": \"Lastname\",\r\n    \"password\": \"Password\",\r\n    \"password_confirmation\": \"Password\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{address}}/users/profile/617d82ceb4f61e3fd42f526a",
+                  "host": ["{{address}}"],
+                  "path": ["users", "profile", "617d82ceb4f61e3fd42f526a"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Email",
+          "item": [
+            {
+              "name": "Request Code",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"mrbarnk1@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{address}}/email/verify",
+                  "host": ["{{address}}"],
+                  "path": ["email", "verify"]
+                }
+              },
+              "response": [
+                {
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"mrbarnk1@gmail.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{address}}/email/verify",
+                      "host": ["{{address}}"],
+                      "path": ["email", "verify"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "48"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"30-D7UnPUv8hnG/zo9kDrtJfMkCU0Q\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 05 Oct 2021 13:20:43 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"code\": 554655,\n    \"token\": \"7UKmLpJikmcLtxUGAD4GH7\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Check Code",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"mrbarnk1@gmail.com\",\r\n    \"code\": \"108849\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{address}}/email/check",
+                  "host": ["{{address}}"],
+                  "path": ["email", "check"]
+                }
+              },
+              "response": [
+                {
+                  "name": "Check Code",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"mrbarnk1@gmail.com\",\r\n    \"code\": \"108849\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{address}}/email/check",
+                      "host": ["{{address}}"],
+                      "path": ["email", "check"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "55"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"37-jCvxGOiv8drjIL4E1zpO1doormo\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 05 Oct 2021 14:05:29 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"status\": true,\n    \"reason\": \"Email verified sucessfully.\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Password",
+          "item": [
+            {
+              "name": "Reset",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"mrbarnk1@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{address}}/password/reset",
+                  "host": ["{{address}}"],
+                  "path": ["password", "reset"]
+                }
+              },
+              "response": [
+                {
+                  "name": "Reset",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"mrbarnk1@gmail.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{address}}/password/reset",
+                      "host": ["{{address}}"],
+                      "path": ["password", "reset"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "178"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"b2-yrUx+F0EKAg+5aKMrXfc6Emi5ic\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 05 Oct 2021 21:25:39 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"link\": \"https://webcop.com/passwordReset?token=db5f8c5f57d25e0c5e44dc217c95acaed6bdd2137ef2341bea804f9226e02536&id=615b3ea317f98d3bccaf97e7\",\n    \"userId\": \"615b3ea317f98d3bccaf97e7\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Change",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"615b3ea317f98d3bccaf97e7\",\r\n    \"token\": \"832a02289615817ed51a00b164160c083fe37604ad156013fa969982353e14a5\",\r\n    \"password\": \"Passwordly\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{address}}/password/change",
+                  "host": ["{{address}}"],
+                  "path": ["password", "change"]
+                }
+              },
+              "response": [
+                {
+                  "name": "Change",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"userId\": \"615b3ea317f98d3bccaf97e7\",\r\n    \"token\": \"832a02289615817ed51a00b164160c083fe37604ad156013fa969982353e14a5\",\r\n    \"password\": \"Passwordly\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{address}}/password/change",
+                      "host": ["{{address}}"],
+                      "path": ["password", "change"]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "56"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"38-MDsWlaYSPL4hR4Yfb+MYzyU0nF0\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 05 Oct 2021 22:20:31 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"status\": true,\n    \"message\": \"Password reset successfully.\"\n}"
+                }
+              ]
             }
           ]
         }
@@ -131,7 +1013,7 @@
   ],
   "variable": [
     {
-      "key": "{{address}}",
+      "key": "address",
       "value": ""
     }
   ]
