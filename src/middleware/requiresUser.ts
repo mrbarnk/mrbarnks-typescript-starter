@@ -3,6 +3,13 @@ import { Request, Response, NextFunction } from "express";
 import { errorResponse } from '../utils/responses.utils';
 import { lang } from '../utils/helper.utils';
 
+/**
+ * Middleware that makes sure user is logged in before accessing route.
+ * @param req 
+ * @param res 
+ * @param next 
+ * @returns 
+ */
 const requiresUser = async (
   req: Request,
   res: Response,

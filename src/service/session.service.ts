@@ -4,7 +4,7 @@ import { get } from "lodash";
 import { UserDocument } from "../model/user.model";
 import Session, { SessionDocument } from "../model/session.model";
 import { sign, decode } from "../utils/jwt.utils";
-import { findUser } from "./user.service";
+import { findOneUser } from "./user.service";
 
 export async function createSession(userId: string, userAgent: string) {
   const session = await Session.create({ user: userId, userAgent });
@@ -48,7 +48,7 @@ export async function reIssueAccessToken({
   // Make sure the session is still valid
   if (!session || !session?.valid) return false;
 
-  const user = await findUser({ _id: session.user });
+  const user = await findOneUser({ _id: session.user });
 
   if (!user) return false;
 

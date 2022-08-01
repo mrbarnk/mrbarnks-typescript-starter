@@ -3,6 +3,11 @@ import { Request, Response, NextFunction } from "express";
 import log from "../logger";
 import { errorResponse } from '../utils/responses.utils';
 
+/**
+ * This validate http requests with provded schema requests
+ * @param schema 
+ * @returns 
+ */
 const validate = (schema: AnySchema) => async (
   req: Request,
   res: Response,

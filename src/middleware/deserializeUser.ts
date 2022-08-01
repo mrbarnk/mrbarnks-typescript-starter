@@ -3,6 +3,13 @@ import { Request, Response, NextFunction } from "express";
 import { decode } from "../utils/jwt.utils";
 import { reIssueAccessToken } from "../service/session.service";
 
+/**
+ * Function that return user object from session
+ * @param req 
+ * @param res 
+ * @param next 
+ * @returns 
+ */
 const deserializeUser = async (
   req: Request,
   res: Response,

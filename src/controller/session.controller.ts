@@ -10,6 +10,13 @@ import {
 } from "../service/session.service";
 import { sign } from "../utils/jwt.utils";
 
+
+/**
+ * Function that handlers user login.
+ * @param req 
+ * @param res 
+ * @returns 
+ */
 export async function createUserSessionHandler(req: Request, res: Response) {
   // validate the email and password
   const user = await validatePassword(req.body);
@@ -36,6 +43,13 @@ export async function createUserSessionHandler(req: Request, res: Response) {
   return res.send({ accessToken, refreshToken });
 }
 
+
+/**
+ * Function that handles user logout
+ * @param req 
+ * @param res 
+ * @returns 
+ */
 export async function invalidateUserSessionHandler(
   req: Request,
   res: Response
